@@ -1,0 +1,24 @@
+.sectionName {
+  color: white;
+  display: block;
+  text-decoration: none;
+  font-size: 150%;
+}
+
+.sidebar-brand a {
+  font-size: 1.75em;
+}
+
+.sidebar-nav, #sidebar-wrapper {
+  background: #0950ba!important;
+  color: white;
+}
+
+.sidebar-nav li a {
+  color: white!important;
+}
+
+.sidebar-nav li a:hover {
+  color: black!important;
+  background: white!important;
+}

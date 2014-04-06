@@ -88,12 +88,13 @@
 
     <!-- JavaScript -->
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type='text/javascript' src="js/bootstrap.js"></script>
+    <script type='text/javascript' src="js/Bootstrap.js"></script>
     <script src="js/CorduleJS.js"></script>
     <script src="js/DiagramAlley.js"></script>
     <script src="js/Edit.js"></script>
     <script src="js/Modal.js"></script>
     <script src="js/View.js"></script>
+    <script src="js/Active.js"></script>
 
     <!-- Custom JavaScript for the Menu Toggle -->
     <script type='text/javascript'>
@@ -101,31 +102,6 @@
         e.preventDefault();
         $("#wrapper").toggleClass("active");
     });
-    </script>
-
-    <script>
-      function hasClass(elem, className) {
-        return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
-      }
-
-      function addClass(elem, className) {
-          if (!hasClass(elem, className)) {
-              elem.className += ' ' + className;
-          }
-      }
-
-      function removeClass(elem, className) {
-        var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, ' ') + ' ';
-        if (hasClass(elem, className)) {
-          while (newClass.indexOf(' ' + className + ' ') >= 0) {
-            newClass = newClass.replace(' ' + className + ' ', ' ');
-          }
-          elem.className = newClass.replace(/^\s+|\s+$/g, '');
-        }
-      }
-
-      var view = document.getElementById('view');
-      var edit = document.getElementById('edit');
     </script>
 
     <script type='text/javascript'>

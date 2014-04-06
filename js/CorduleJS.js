@@ -55,8 +55,8 @@ var CorduleJS = (function() {
         if(observers[request]) {
             var results = [];
             for(var i = 0; observers[request] && i < observers[request].length; i++) {
-                var result = observers[request][i].callback.call(params);
-                if(result)
+                var result = observers[request][i].callback.call(observers[request][i].callback,params);
+                if(result !== undefined)
                     results.push(result);
                 
                 if(removingObserver === request) {

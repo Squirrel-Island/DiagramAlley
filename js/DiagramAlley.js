@@ -84,10 +84,26 @@ CorduleJS.addModule('DiagramAlley', (function() {
             return false;
 
         if(!modes[modeData.name])
-            return false
+            return false;
+
+        //make duplicate so other modules cannot mess up the actual regions list
+        var regData = {};
+        for(key in regions) {
+            if(Object.prototype.hasOwnProperty.call(regions,key)) {
+                regData[key] = {
+                    id: regions[key].id,
+                    label: regions[key].label,
+                    desc: regions[key].desc,
+                    x: regions[key].x,   
+                    y: regions[key].y,   
+                    width: regions[key].width,   
+                    height: regions[key].height   
+                }
+            }
+        }
 
         CorduleJS.pushRequest('unlink');
-        CorduleJS.pushRequest(modeData.name+'_mode', {regData: regions, canvas: canvas});
+        CorduleJS.pushRequest(modeData.name+'_mode', {regData: regData, canvas: canvas});
     }
 
     return {

@@ -23,13 +23,8 @@ body {
   font-size: 110%
 }
 
-.sidebar-nav li a:hover {
-  color: black;
-  background: white;
-}
-
-.sidebar-nav li a:active {
-  color: black;
+.sidebar-nav li a:hover, .sidebar-nav li a:active, .active {
+  color: black!important;
   background: white;
 }
 

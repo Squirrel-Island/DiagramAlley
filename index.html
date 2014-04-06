@@ -39,11 +39,11 @@
                 <img alt="Logo" width="88%" onmouseout="this.src='img/logo.png'" onmouseover="this.src='img/logoBlack.png'" src="img/logo.png"></a>
                 </li>
                 <hr>
-                <li class="sectionName">Modes</a>
+                <li class="sectionName">Mode</a>
                 </li>
-                <li><a href="#" onclick="CorduleJS.pushRequest('switchMode',{name:'View'})">View</a>
+                <li><a href="#" id="view" onclick="CorduleJS.pushRequest('switchMode',{name:'View'}); addClass(view, 'active'); removeClass(edit, 'active');">View</a>
                 </li>
-                <li><a href="#" onclick="CorduleJS.pushRequest('switchMode',{name:'Edit'})">Edit</a>
+                <li><a href="#" id="edit" onclick="CorduleJS.pushRequest('switchMode',{name:'Edit'});  addClass(edit, 'active'); removeClass(view, 'active');">Edit</a>
                 </li>
                 <li><a href="#">Quiz</a>
                 </li>
@@ -101,6 +101,31 @@
         e.preventDefault();
         $("#wrapper").toggleClass("active");
     });
+    </script>
+
+    <script>
+      function hasClass(elem, className) {
+        return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+      }
+
+      function addClass(elem, className) {
+          if (!hasClass(elem, className)) {
+              elem.className += ' ' + className;
+          }
+      }
+
+      function removeClass(elem, className) {
+        var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, ' ') + ' ';
+        if (hasClass(elem, className)) {
+          while (newClass.indexOf(' ' + className + ' ') >= 0) {
+            newClass = newClass.replace(' ' + className + ' ', ' ');
+          }
+          elem.className = newClass.replace(/^\s+|\s+$/g, '');
+        }
+      }
+
+      var view = document.getElementById('view');
+      var edit = document.getElementById('edit');
     </script>
 
     <script type='text/javascript'>

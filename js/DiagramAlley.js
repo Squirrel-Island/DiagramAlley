@@ -5,7 +5,7 @@ CorduleJS.addModule('DiagramAlley', (function() {
     var canvas = document.getElementById('diagram-canvas');
 
     var addRegion = function(regData) {
-        if(!(regData && regData.label && regData.x && regData.y && regData.width && regData.height))
+        if(!(regData && regData.label && isSet(regData.x) && isSet(regData.y) && isSet(regData.width) && isSet(regData.height)))
             return false;
 
         regions[regionCount] = {
@@ -20,11 +20,19 @@ CorduleJS.addModule('DiagramAlley', (function() {
 
         regionCount++;
 
-        return true;
+        return {
+            id     : regionCount-1, 
+            label  : regData.label,
+            desc   : regData.desc || "",
+            x      : regData.x,
+            y      : regData.y,
+            width  : regData.width,
+            height : regData.height 
+        };
     }
 
     var setRegion = function(regData) {
-        if(!(regData && regData.id && regData.label && regData.x && regData.y && regData.width && regData.height))
+        if(!(regData && isSet(regData.id) && regData.label && isSet(regData.x) && isSet(regData.y) && isSet(regData.width) && isSet(regData.height)))
             return false;
 
         if(!regions[regData.id])
@@ -41,7 +49,7 @@ CorduleJS.addModule('DiagramAlley', (function() {
     }
 
     var removeRegion = function(regData) {
-        if(!(regData && regData.id && regions[regData.id]))
+        if(!(regData && isSet(regData.id) && regions[regData.id]))
             return false;
 
         delete regions[regData.id];
@@ -104,6 +112,10 @@ CorduleJS.addModule('DiagramAlley', (function() {
 
         CorduleJS.pushRequest('unlink');
         CorduleJS.pushRequest(modeData.name+'_mode', {regData: regData, canvas: canvas});
+    }
+
+    function isSet(item) {
+        return item !== null && item !== undefined;
     }
 
     return {

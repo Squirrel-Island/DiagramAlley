@@ -24,14 +24,19 @@
 
         <div id="modalBackground"></div>
 
-        <div id="modal"></div>
+        <div id="modal">
+          <input id="title"></input>
+          <textarea id="description"></textarea>
+          <button id="saveButton">Save</button>
+          <button id="deleteButton">Delete</button>
+          <button id="cancelButton">Cancel</button>
+        </div>
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"><a href="#">
                 <img alt="Logo" width="88%" onmouseout="this.src='img/logo.png'" onmouseover="this.src='img/logoBlack.png'" src="img/logo.png"></a>
-<!--                   <img src="img/logo.png" width="88%"></a> -->
                 </li>
                 <hr>
                 <li class="sectionName">Modes</a>
@@ -87,6 +92,7 @@
     <script src="js/CorduleJS.js"></script>
     <script src="js/DiagramAlley.js"></script>
     <script src="js/Edit.js"></script>
+    <script src="js/Modal.js"></script>
 
     <!-- Custom JavaScript for the Menu Toggle -->
     <script type='text/javascript'>

@@ -38,15 +38,33 @@ CorduleJS.addModule('View', (function() {
 
         var textX = origin.x + (endPoint.x - origin.x) / 2;
         var textY = origin.y + (endPoint.y - origin.y) / 2;
-
+        
         context.font = '20pt Calibri';
         context.textAlign = 'center';
-        context.fillStyle = 'green';
+        context.fillStyle = 'white';
+
+        var labelMetric = context.measureText(reg.label);
+        var descMetric = context.measureText(reg.desc);
+
+        var metric = labelMetric.width > descMetric.width ? labelMetric:descMetric;
+
+        var bgX = origin.x + ((endPoint.x - origin.x) - metric.width) / 2 - 20;
+
+        context.beginPath();
+        context.rect(bgX,textY-40, metric.width+40, 100);
+        context.fillStyle = 'black';
+        context.globalAlpha = 0.5;
+        context.fill();
+
+        context.globalAlpha = 1;
+        context.font = '20pt Calibri';
+        context.textAlign = 'center';
+        context.fillStyle = 'white';
         context.fillText(reg.label,textX,textY);
 
         context.font = '14pt Calibri';
         context.textAlign = 'center';
-        context.fillStyle = '#555';
+        context.fillStyle = '#ddd';
         context.fillText(reg.desc, textX, textY+40);
 
     }

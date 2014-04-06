@@ -4,12 +4,37 @@
 <title>Diagram Alley</title>
 </head>
 <body>
-<canvas id="diagram-canvas" width="1000" height="500" style="border: 1px dashed #000"></canvas>
+<canvas id="diagram-canvas" width="1000px" height="500px" style="border: 1px dashed #000"></canvas>
 <div>
     <input id="label">
     <input id="desc">
     <input type="submit" id="sub"><input type="submit" value="Delete" id="del">
 </div>
+<script>
+var canvas = document.getElementById('diagram-canvas');
+var context = canvas.getContext('2d');
+window.img = new Image();
+
+img.onload = function() {
+    var w = img.width;
+    var h = img.height;
+    var cw = canvas.width;
+    var ch = canvas.height;
+
+    if(w>h) {
+        w = cw;
+        h = cw * (img.height/img.width); 
+    }
+    else {
+        h = ch;
+        w = ch * (img.width/img.height);
+    }
+
+    context.drawImage(img, 0,0,w,h);
+};
+
+window.img.src = 'http://2.bp.blogspot.com/-AFW7nqJ-fWQ/UJq6ELHVhXI/AAAAAAAAEIU/KuFnawCeKiY/s1600/Stand%2BTall%2BGiraffe_Tom%2BLichtenheld.JPG';
+</script>
 <script src="js/CorduleJS.js"></script>
 <script src="js/DiagramAlley.js"></script>
 <script src="js/Edit.js"></script>

@@ -204,7 +204,6 @@ CorduleJS.addModule('Edit', (function() {
             CorduleJS.observe(self,'unlink', unlink);
 
             CorduleJS.pushRequest('registerMode', {name:'Edit'});
-            CorduleJS.pushRequest('registerMode', {name:'Lol'});
 
             //for testing purposes
             CorduleJS.observe(self,'displayModal', function(tempRegData) {

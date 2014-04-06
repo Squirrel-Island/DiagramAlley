@@ -3,6 +3,7 @@ CorduleJS.addModule('DiagramAlley', (function() {
     var regionCount = 0;
     var modes = {};
     var canvas = document.getElementById('diagram-canvas');
+    var image = new Image();
 
     var addRegion = function(regData) {
         if(!(regData && regData.label && isSet(regData.x) && isSet(regData.y) && isSet(regData.width) && isSet(regData.height)))
@@ -114,6 +115,46 @@ CorduleJS.addModule('DiagramAlley', (function() {
         CorduleJS.pushRequest(modeData.name+'_mode', {regData: regData, canvas: canvas});
     }
 
+    var loadImage = function(img) {
+        var context = canvas.getContext('2d');
+        image.onload = function() {
+            var w = image.width;
+            var h = image.height;
+            var cw = canvas.width;
+            var ch = canvas.height;
+
+            if(w>h) {
+                w = cw;
+                h = cw * (image.height/image.width);
+            }
+            else {
+                h = ch;
+                w = ch * (image.width/image.height);
+            }
+            context.drawImage(image, 0,0,w,h);
+        };
+
+        image.src = img.src;
+    }
+
+    var drawImage = function() {
+        var context = canvas.getContext('2d');
+        var w = image.width;
+        var h = image.height;
+        var cw = canvas.width;
+        var ch = canvas.height;
+
+        if(w>h) {
+            w = cw;
+            h = cw * (image.height/image.width);
+        }
+        else {
+            h = ch;
+            w = ch * (image.width/image.height);
+        }
+        context.drawImage(image, 0,0,w,h);
+    }
+
     function isSet(item) {
         return item !== null && item !== undefined;
     }
@@ -127,6 +168,8 @@ CorduleJS.addModule('DiagramAlley', (function() {
             CorduleJS.observe(self,'registerMode',registerMode);
             CorduleJS.observe(self,'removeMode',removeMode);
             CorduleJS.observe(self,'switchMode',switchMode);
+            CorduleJS.observe(self,'loadImage',loadImage);
+            CorduleJS.observe(self,'drawImage',drawImage);
         },
         destroy: function() {}
     };

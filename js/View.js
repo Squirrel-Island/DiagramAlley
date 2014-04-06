@@ -12,6 +12,7 @@ CorduleJS.addModule('View', (function() {
         context = canvas.getContext('2d');
 
         context.clearRect(0,0,canvas.width,canvas.height);
+        CorduleJS.pushRequest('drawImage');
         for(key in regions) {
             drawLabel(regions[key]);
         }

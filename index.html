@@ -41,9 +41,9 @@
                 <hr>
                 <li class="sectionName">Modes</a>
                 </li>
-                <li><a href="#">View</a>
+                <li><a href="#" onclick="CorduleJS.pushRequest('switchMode',{name:'View'})">View</a>
                 </li>
-                <li><a href="#">Edit</a>
+                <li><a href="#" onclick="CorduleJS.pushRequest('switchMode',{name:'Edit'})">Edit</a>
                 </li>
                 <li><a href="#">Quiz</a>
                 </li>
@@ -104,28 +104,7 @@
     </script>
 
     <script type='text/javascript'>
-      var canvas = document.getElementById('diagram-canvas');
-      var context = canvas.getContext('2d');
-      window.img = new Image();
-      img.onload = function() {
-          var w = img.width;
-          var h = img.height;
-          var cw = canvas.width;
-          var ch = canvas.height;
-
-          if(w>h) {
-              w = cw;
-              h = cw * (img.height/img.width);
-          }
-          else {
-              h = ch;
-              w = ch * (img.width/img.height);
-          }
-
-          context.drawImage(img, 0,0,w,h);
-      };
-
-      window.img.src = 'http://upload.wikimedia.org/wikipedia/commons/c/c7/Domestic_shorthaired_cat_face.jpg';
+      CorduleJS.pushRequest('loadImage',{src:'http://upload.wikimedia.org/wikipedia/commons/c/c7/Domestic_shorthaired_cat_face.jpg'});
     </script>
 </body>
 </html>

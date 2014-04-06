@@ -2,23 +2,33 @@
   color: white;
   display: block;
   text-decoration: none;
-  font-size: 150%;
+  font-size: 175%;
 }
 
 .sidebar-brand a {
-  font-size: 1.75em;
+  font-size: 1.75em!important;
 }
 
 .sidebar-nav, #sidebar-wrapper {
-  background: #0950ba!important;
+  background: #4a77ba!important;
   color: white;
 }
 
 .sidebar-nav li a {
   color: white!important;
+  font-size: 110%
 }
 
 .sidebar-nav li a:hover {
   color: black!important;
   background: white!important;
+}
+
+.sidebar-nav li a:active {
+  color: black!important;
+  background: white!important;
+}
+
+.diagramImage {
+  max-width: 100%!important;
 }

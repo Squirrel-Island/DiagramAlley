@@ -206,27 +206,6 @@ CorduleJS.addModule('Edit', (function() {
 
             CorduleJS.pushRequest('registerMode', {name:'Edit'});
 
-            // //for testing purposes
-            // CorduleJS.observe(self,'displayModal', function(tempRegData) {
-            //     var submit = document.getElementById('sub');
-            //     var del = document.getElementById('del');
-            //     document.getElementById('label').value = tempRegData.label;
-            //     document.getElementById('desc').value = tempRegData.desc;
-            //     submit.onclick = function() {
-            //         tempRegData.label = document.getElementById('label').value;
-            //         tempRegData.desc = document.getElementById('desc').value;
-            //         tempRegData.callback(tempRegData);
-            //         submit.onclick = "";
-            //     };
-            //     if(del)
-            //         del.onclick = function() {
-            //             tempRegData.regEditMode = 'remove';
-            //             tempRegData.label = document.getElementById('label').value;
-            //             tempRegData.desc = document.getElementById('desc').value;
-            //             tempRegData.callback(tempRegData);
-            //         }
-            // });
-
         },
         destroy: function() {}
     };

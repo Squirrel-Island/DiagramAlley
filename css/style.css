@@ -46,3 +46,27 @@
   background: url('http://upload.wikimedia.org/wikipedia/commons/c/c7/Domestic_shorthaired_cat_face.jpg');
   background-size: contain;
 }
+
+#modalBackground {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  background-color: #000;
+  opacity: .7;
+  display: none;
+}
+
+#modal {
+  position: absolute;
+  top: 30%;
+  bottom: 30%;
+  left: 570px;
+  right: 320px;
+  z-index: 5;
+  border-radius: 1em;
+  background: #ccc;
+  display: none;
+}

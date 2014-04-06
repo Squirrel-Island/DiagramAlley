@@ -22,6 +22,10 @@
 
     <div id="wrapper">
 
+        <div id="modalBackground"></div>
+
+        <div id="modal"></div>
+
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -74,11 +78,7 @@
             <div class="page-content inset">
                 <canvas id="canvas"></canvas>
             </div>
-
-
-
         </div>
-
     </div>
 
     <!-- JavaScript -->
@@ -101,7 +101,6 @@
       img.onload = function() {
         canvas.height = img.height;
         canvas.width = img.width;
-        //context.drawImage(img, 0, 0, canvas.width, canvas.height);
       };
     </script>
 </body>

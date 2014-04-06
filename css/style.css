@@ -6,31 +6,37 @@
 }
 
 .sidebar-brand a {
-  font-size: 1.75em!important;
+  margin-top: .9em;
 }
 
 .sidebar-nav, #sidebar-wrapper {
-  background: #4a77ba!important;
+  background: #4a77ba;
   color: white;
 }
 
 .sidebar-nav li a {
-  color: white!important;
+  color: white;
   font-size: 110%
 }
 
 .sidebar-nav li a:hover {
-  color: black!important;
-  background: white!important;
+  color: black;
+  background: white;
 }
 
 .sidebar-nav li a:active {
-  color: black!important;
-  background: white!important;
+  color: black;
+  background: white;
+}
+
+#creators li {
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
 #diagramImage {
-  max-width: 100%!important;
+  max-width: 100%;
 }
 
 canvas #annotations {

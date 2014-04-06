@@ -74,7 +74,7 @@ body {
   display: none;
 }
 
-#title, #description {
+#label, #description {
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;

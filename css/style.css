@@ -1,0 +1,97 @@
+body {
+  background-image: url('../img/bg.png');
+}
+
+.sectionName {
+  color: white;
+  display: block;
+  text-decoration: none;
+  font-size: 175%;
+}
+
+.sidebar-brand a {
+  margin-top: .9em;
+}
+
+.sidebar-nav, #sidebar-wrapper {
+  background: #4a77ba;
+  color: white;
+}
+
+.sidebar-nav li a {
+  color: white;
+  font-size: 110%
+}
+
+.sidebar-nav li a:hover {
+  color: black;
+  background: white;
+}
+
+.sidebar-nav li a:active {
+  color: black;
+  background: white;
+}
+
+#creators li {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+#diagram-canvas {
+  max-width: 100%;
+  max-height: 100%;
+  background: url('http://upload.wikimedia.org/wikipedia/commons/c/c7/Domestic_shorthaired_cat_face.jpg');
+  background-size: contain;
+}
+
+/*
+ MODAL
+ */
+
+#modalBackground {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  background-color: #000;
+  opacity: .7;
+  display: none;
+}
+
+#modal {
+  position: absolute;
+  top: 30%;
+  bottom: 30%;
+  left: 600px;
+  right: 350px;
+  z-index: 5;
+  border-radius: 1em;
+  background: #ccc;
+  display: none;
+}
+
+#title, #description {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 20px;
+  border-radius: .4em;
+}
+
+#description {
+  height: 60%;
+  width: 80%;
+}
+
+#saveButton, #deleteButton, #cancelButton {
+  padding: 5px;
+  margin-top: 20px;
+}
+
+#saveButton {
+  margin-left: 35%;
+}

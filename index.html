@@ -1,18 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Diagram Alley</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Diagram ALL the things">
+    <meta name="author" content="Robert Whitaker and Nicholas La Roux">
+
+    <title>Diagram Alley</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
 </head>
+
 <body>
-<canvas id="diagram-canvas" width="1000" height="500" style="border: 1px dashed #000"></canvas>
-<div>
-    <input id="label">
-    <input id="desc">
-    <input type="submit" id="sub"><input type="submit" value="Delete" id="del">
-</div>
-<script src="js/CorduleJS.js"></script>
-<script src="js/DiagramAlley.js"></script>
-<script src="js/Edit.js"></script>
-<script src="js/View.js"></script>
+
+    <div id="wrapper">
+
+        <div id="modalBackground"></div>
+
+        <div id="modal">
+          <input id="title"></input>
+          <textarea id="description"></textarea>
+          <button id="saveButton">Save</button>
+          <button id="deleteButton">Delete</button>
+          <button id="cancelButton">Cancel</button>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="#">
+                <img alt="Logo" width="88%" onmouseout="this.src='img/logo.png'" onmouseover="this.src='img/logoBlack.png'" src="img/logo.png"></a>
+                </li>
+                <hr>
+                <li class="sectionName">Modes</a>
+                </li>
+                <li><a href="#">View</a>
+                </li>
+                <li><a href="#">Edit</a>
+                </li>
+                <li><a href="#">Quiz</a>
+                </li>
+                <hr>
+                <li class="sectionName">Options</a>
+                </li>
+                <li><a href="#">Names</a>
+                </li>
+                <li><a href="#">Descriptions</a>
+                </li>
+                <li><a href="#">Both</a>
+                </li>
+                <li><a href="#">None</a>
+                </li>
+                <hr>
+                <li><a href="#">Save</a>
+                </li>
+                <li><a href="#">Delete</a>
+                </li>
+                <li><a href="#">New</a>
+                </li>
+                <hr>
+                <li><a href="http://carrotisland.nicklaroux.com">&copy; 2014 Carrot Island</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+          <!--<div class="content-header">
+                  <h1>
+                      <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+                      Cat Face
+                  </h1>
+              </div> -->
+            <!-- Keep all page content within the page-content inset div! -->
+            <div class="page-content inset">
+                <canvas id="diagram-canvas" width="1150px" height="500px"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type='text/javascript' src="js/bootstrap.js"></script>
+    <script src="js/CorduleJS.js"></script>
+    <script src="js/DiagramAlley.js"></script>
+    <script src="js/Edit.js"></script>
+    <script src="js/Modal.js"></script>
+    <script src="js/View.js"></script>
+
+    <!-- Custom JavaScript for the Menu Toggle -->
+    <script type='text/javascript'>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
+
+    <script type='text/javascript'>
+      var canvas = document.getElementById('diagram-canvas');
+      var context = canvas.getContext('2d');
+      window.img = new Image();
+      img.onload = function() {
+          var w = img.width;
+          var h = img.height;
+          var cw = canvas.width;
+          var ch = canvas.height;
+
+          if(w>h) {
+              w = cw;
+              h = cw * (img.height/img.width);
+          }
+          else {
+              h = ch;
+              w = ch * (img.width/img.height);
+          }
+
+          context.drawImage(img, 0,0,w,h);
+      };
+
+      window.img.src = 'http://upload.wikimedia.org/wikipedia/commons/c/c7/Domestic_shorthaired_cat_face.jpg';
+    </script>
 </body>
 </html>

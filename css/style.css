@@ -35,12 +35,7 @@
   display: block;
 }
 
-#diagramImage {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-#canvas {
+#diagram-canvas {
   max-width: 100%;
   max-height: 100%;
   background: url('http://upload.wikimedia.org/wikipedia/commons/c/c7/Domestic_shorthaired_cat_face.jpg');

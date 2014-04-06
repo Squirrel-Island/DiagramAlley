@@ -168,8 +168,8 @@ CorduleJS.addModule('Edit', (function() {
         for(key in regions) {
             var reg = regions[key];
             context.beginPath();
-            context.lineWidth = 1;
-            context.strokeStyle = 'green';
+            context.lineWidth = 5;
+            context.strokeStyle = 'black';
             context.rect(reg.x,reg.y,reg.width,reg.height);
             context.stroke();
         }
@@ -179,8 +179,8 @@ CorduleJS.addModule('Edit', (function() {
         drawRegionBoxes();
         context.beginPath();
         context.rect(mouseDownPos.x,mouseDownPos.y,mousePos.x - mouseDownPos.x, mousePos.y - mouseDownPos.y);
-        context.lineWidth = 2;
-        context.strokeStyle = 'black';
+        context.lineWidth = 7;
+        context.strokeStyle = '#4a77ba';
         context.stroke();
     }
 

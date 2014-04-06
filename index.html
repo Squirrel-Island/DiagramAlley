@@ -72,8 +72,7 @@
               </div> -->
             <!-- Keep all page content within the page-content inset div! -->
             <div class="page-content inset">
-                <img id="diagramImage" src="http://upload.wikimedia.org/wikipedia/commons/c/c7/Domestic_shorthaired_cat_face.jpg" alt="Cat Face">
-                <canvas id="annotations"></canvas>
+                <canvas id="canvas"></canvas>
             </div>
 
 
@@ -86,30 +85,25 @@
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type='text/javascript' src="js/bootstrap.js"></script>
 
-
     <!-- Custom JavaScript for the Menu Toggle -->
-    <script type="text/javascript">
+    <script type='text/javascript'>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("active");
     });
     </script>
 
-    <!--<script type="text/javascript">
-      var canvas = document.getElementById('viewport')
-      context = canvas.getContext('2d');
-
-      make_base();
-
-      function make_base()
-      {
-        base_image = new Image();
-        base_image.src = 'http://www.tiverton.ri.gov/img/content/trees/home_tree.png';
-        base_image.onload = function(){
-          context.drawImage(base_image, 0, 0);
-        }
-      }
-    </script>-->
+    <script type='text/javascript'>
+      var canvas = document.getElementById('canvas');
+      var context = canvas.getContext('2d');
+      var img = new Image();
+      img.src = "http://upload.wikimedia.org/wikipedia/commons/c/c7/Domestic_shorthaired_cat_face.jpg";
+      img.onload = function() {
+        canvas.height = img.height;
+        canvas.width = img.width;
+        context.drawImage(img, 0, 0, canvas.width, canvas.height);
+      };
+    </script>
 </body>
 
 </html>

@@ -29,6 +29,10 @@
   background: white!important;
 }
 
-.diagramImage {
+#diagramImage {
   max-width: 100%!important;
+}
+
+canvas #overlay {
+
 }

@@ -16,7 +16,6 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -68,7 +67,8 @@
               </div> -->
             <!-- Keep all page content within the page-content inset div! -->
             <div class="page-content inset">
-                <img class="diagramImage" src="http://upload.wikimedia.org/wikipedia/commons/c/c7/Domestic_shorthaired_cat_face.jpg" alt="Cat Face">
+                <img id="diagramImage" src="http://upload.wikimedia.org/wikipedia/commons/c/c7/Domestic_shorthaired_cat_face.jpg" alt="Cat Face">
+                <canvas id="overlay"></canvas>
             </div>
         </div>
 
@@ -79,12 +79,28 @@
     <script src="js/bootstrap.js"></script>
 
     <!-- Custom JavaScript for the Menu Toggle -->
-    <script>
+    <script type="text/javascript">
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("active");
     });
     </script>
+
+    <!--<script type="text/javascript">
+      var canvas = document.getElementById('viewport')
+      context = canvas.getContext('2d');
+
+      make_base();
+
+      function make_base()
+      {
+        base_image = new Image();
+        base_image.src = 'http://www.tiverton.ri.gov/img/content/trees/home_tree.png';
+        base_image.onload = function(){
+          context.drawImage(base_image, 0, 0);
+        }
+      }
+    </script>-->
 </body>
 
 </html>

@@ -164,6 +164,7 @@ CorduleJS.addModule('Edit', (function() {
 
     function drawRegionBoxes() {
         context.clearRect(0,0,canvas.width,canvas.height);
+        CorduleJS.pushRequest('drawBackground');
         for(key in regions) {
             var reg = regions[key];
             context.beginPath();
@@ -178,7 +179,7 @@ CorduleJS.addModule('Edit', (function() {
         drawRegionBoxes();
         context.beginPath();
         context.rect(mouseDownPos.x,mouseDownPos.y,mousePos.x - mouseDownPos.x, mousePos.y - mouseDownPos.y);
-        context.lineWidth = 1;
+        context.lineWidth = 2;
         context.strokeStyle = 'black';
         context.stroke();
     }
@@ -225,6 +226,27 @@ CorduleJS.addModule('Edit', (function() {
                         tempRegData.desc = document.getElementById('desc').value;
                         tempRegData.callback(tempRegData);
                     }
+            });
+
+            CorduleJS.observe(self,'drawBackground', function() {
+                var canvas = document.getElementById('diagram-canvas');
+                var context = canvas.getContext('2d');
+
+                    var w = img.width;
+    var h = img.height;
+    var cw = canvas.width;
+    var ch = canvas.height;
+
+    if(w>h) {
+        w = cw;
+        h = cw * (img.height/img.width); 
+    }
+    else {
+        h = ch;
+        w = ch * (img.width/img.height);
+    }
+
+    context.drawImage(img, 0,0,w,h);
             });
 
         },

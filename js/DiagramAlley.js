@@ -123,7 +123,7 @@ CorduleJS.addModule('DiagramAlley', (function() {
             var cw = canvas.width;
             var ch = canvas.height;
 
-            if(w>h) {
+            if(w > h && (cw * (image.height/image.width)) <= ch) {
                 w = cw;
                 h = cw * (image.height/image.width);
             }
@@ -131,7 +131,10 @@ CorduleJS.addModule('DiagramAlley', (function() {
                 h = ch;
                 w = ch * (image.width/image.height);
             }
-            context.drawImage(image, 0,0,w,h);
+
+            var xOffset = (cw - w) / 2;
+            var yOffset = (ch - h) / 2;
+            context.drawImage(image,xOffset,yOffset,w,h);
         };
 
         image.src = img.src;
@@ -144,7 +147,7 @@ CorduleJS.addModule('DiagramAlley', (function() {
         var cw = canvas.width;
         var ch = canvas.height;
 
-        if(w>h) {
+        if(w>h && (cw * (image.height/image.width)) <= ch) {
             w = cw;
             h = cw * (image.height/image.width);
         }
@@ -152,7 +155,10 @@ CorduleJS.addModule('DiagramAlley', (function() {
             h = ch;
             w = ch * (image.width/image.height);
         }
-        context.drawImage(image, 0,0,w,h);
+        
+        var xOffset = (cw - w) / 2;
+        var yOffset = (ch - h) / 2;
+        context.drawImage(image,xOffset,yOffset,w,h);
     }
 
     function isSet(item) {
